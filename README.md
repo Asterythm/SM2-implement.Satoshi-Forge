@@ -22,7 +22,7 @@ python src/sm2.py
 
 ### 群阶与循环子群：
 
-曲线群 $E(\mathbb{F}_q)$ 的阶为 $N = \#E(\mathbb{F}_q)$。
+曲线群 $E(\mathbb{F}_q)$ 的阶为 $N = \# E(\mathbb{F}_q)$。
 寻找循环子群 $$，其阶 $r$ 为 $N$ 的最大素因子，余因子 $h = N/r$。
 生成子群：随机选 $P \in E(\mathbb{F}_q)$，令 $G = h \cdot P$，则 $$ 阶为 $r$，同构于 $\mathbb{Z}_r$。
 
@@ -36,4 +36,4 @@ SM2 定义在素域 $\mathbb{F}_q$（256 位素数 $q$）上，参数包括：
 
 + 曲线参数 $a, b$。
 + 基点 $G = (x_G, y_G)$，阶为 $n$。
-+ 余因子 $h = \#E(\mathbb{F}_q) / n$。具体参数见 src/sm2.py
++ 余因子 $h = \# E (\mathbb{F}_q) / n$。具体参数见 src/sm2.py
