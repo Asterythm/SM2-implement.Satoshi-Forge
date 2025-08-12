@@ -97,17 +97,17 @@
 
 **陷阱3: 不同用户重用 k**：
 - **推导**：
-  - Alice：$s_1 (1 + d_A) = k - r_1 d_A$，$d_A = (k - s_1) (s_1 + r_1)^{-1} \mod n$。
-  - Bob：$s_2 (1 + d_B) = k - r_2 d_B$，$d_B = (k - s_2) (s_2 + r_2)^{-1} \mod n$。
+  - Alice: $s_1 (1 + d_A) = k - r_1 d_A$，$d_A = (k - s_1) (s_1 + r_1)^{-1} \mod n$。
+  - Bob: s_2 (1 + d_B) = k - r_2 d_B$，$d_B = (k - s_2) (s_2 + r_2)^{-1} \mod n$。
   - 若 k 共享，Alice 可计算 Bob 的 $d_B$，反之亦然。
 - POC：`reuse_k_diff_users.py`，验证互推私钥。
 
 **陷阱4: 同一 d 和 k 用于 ECDSA 和 SM2**：
 - **推导**：
-  - ECDSA：$s_1 = k^{-1} (e_1 + r_1 d) \mod n$。
-  - SM2：$s_2 = (1 + d)^{-1} (k - r_2 d) \mod n$。
+  - ECDSA: s_1 = k^{-1} (e_1 + r_1 d) \mod n$。
+  - SM2: $s_2 = (1 + d)^{-1} (k - r_2 d) \mod n$。
   - 联立：
     - $d r_1 = k s_1 - e_1 \mod n$。
     - $d s_2 + r_2 d = k - s_2 \mod n$。
-    - 解得：$d = (s_1 s_2 - e_1) (r_1 - s_1 s_2 - s_1 r_2)^{-1} \mod n$。
+    - 解得: $d = (s_1 s_2 - e_1) (r_1 - s_1 s_2 - s_1 r_2)^{-1} \mod n$。
 - POC：`ecdsa_sm2_same_dk.py`，验证跨算法泄露 d。
